@@ -1,0 +1,35 @@
+#include "iter.hpp"
+#include <string>
+
+template <typename T>
+void print_element(T & element)
+{
+	std::cout << element << " ";
+}
+
+template <typename T>
+void print_const_element(const T & element)
+{
+	std::cout << element << " ";
+}
+
+int main()
+{
+	int int_arr[] = {1, 2, 3, 4, 5};
+	std::string str_arr[] = {"uno", "dos", "tres"};
+
+	std::cout << "Int array: ";
+	::iter(int_arr, 5, print_element<int>);
+	std::cout << std::endl;
+
+	std::cout << "String array: ";
+	::iter(str_arr, 3, print_element<std::string>);
+	std::cout << std::endl;
+
+	const int const_arr[] = {10, 20, 30};
+	std::cout << "Const int array: ";
+	::iter(const_arr, 3, print_const_element<int>);
+	std::cout << std::endl;
+
+	return 0;
+}
