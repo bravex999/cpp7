@@ -13,6 +13,12 @@ void print_const_element(const T & element)
 	std::cout << element << " ";
 }
 
+template <typename T>
+void increment(T & element)
+{
+	element++;
+}
+
 int main()
 {
 	int int_arr[] = {1, 2, 3, 4, 5};
@@ -29,6 +35,14 @@ int main()
 	const int const_arr[] = {10, 20, 30};
 	std::cout << "Const int array: ";
 	::iter(const_arr, 3, print_const_element<int>);
+	std::cout << std::endl;
+
+	std::cout << "Before increment: ";
+	::iter(int_arr, 5, print_element<int>);
+	std::cout << std::endl;
+	::iter(int_arr, 5, increment<int>);
+	std::cout << "After increment: ";
+	::iter(int_arr, 5, print_element<int>);
 	std::cout << std::endl;
 
 	return 0;
