@@ -50,6 +50,28 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+
+    // Empty array test
+    Array<int> empty;
+    std::cout << "Empty array size: " << empty.size() << std::endl;
+    try
+    {
+        empty[0] = 42;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "Empty array access: " << e.what() << '\n';
+    }
+
+    // Deep copy independence test
+    Array<int> original(3);
+    original[0] = 100;
+    original[1] = 200;
+    original[2] = 300;
+    Array<int> copy(original);
+    copy[0] = 999;
+    std::cout << "Original[0]: " << original[0] << ", Copy[0]: " << copy[0] << std::endl;
+
+    delete [] mirror;
     return 0;
 }
