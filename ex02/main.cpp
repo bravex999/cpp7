@@ -84,6 +84,25 @@ int main(int, char**)
     copy[0] = 999;
     std::cout << "Original[0]: " << original[0] << ", Copy[0]: " << copy[0] << std::endl;
 
+    // Test with different types
+    std::cout << "\n--- Multi-type tests ---" << std::endl;
+
+    Array<float> floats(3);
+    floats[0] = 1.1f;
+    floats[1] = 2.2f;
+    floats[2] = 3.3f;
+    std::cout << "Float: " << floats[0] << " " << floats[1] << " " << floats[2] << std::endl;
+
+    Array<std::string> strs(2);
+    strs[0] = "hello";
+    strs[1] = "world";
+    std::cout << "String: " << strs[0] << " " << strs[1] << std::endl;
+
+    Array<char> chars(3);
+    chars[0] = 'A';
+    chars[1] = 'B';
+    chars[2] = 'C';
+    std::cout << "Char: " << chars[0] << " " << chars[1] << " " << chars[2] << std::endl;
     delete [] mirror;
     return 0;
 }
