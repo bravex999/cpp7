@@ -42,23 +42,21 @@ public:
 	{
 		if (this != &other)
 		{
+			T *tmp = NULL;
+			if (other._n > 0)
+			{
+				tmp = new T[other._n];
+				for (unsigned int i = 0; i < other._n; i++)
+				{
+					tmp[i] = other._elements[i];
+				}
+			}
 			if (_elements)
 			{
 				delete[] _elements;
 			}
+			_elements = tmp;
 			_n = other._n;
-			if (_n > 0)
-			{
-				_elements = new T[_n];
-				for (unsigned int i = 0; i < _n; i++)
-				{
-					_elements[i] = other._elements[i];
-				}
-			}
-			else
-			{
-				_elements = NULL;
-			}
 		}
 		return *this;
 	}
