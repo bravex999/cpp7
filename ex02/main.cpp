@@ -27,7 +27,7 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
-    //SCOPE
+    
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
@@ -63,7 +63,7 @@ int main(int, char**)
         numbers[i] = rand();
     }
 
-    // Empty array test
+    
     Array<int> empty;
     std::cout << "Empty array size: " << empty.size() << std::endl;
     try
@@ -75,7 +75,7 @@ int main(int, char**)
         std::cerr << "Empty array access: " << e.what() << '\n';
     }
 
-    // Deep copy independence test
+    
     Array<int> original(3);
     original[0] = 100;
     original[1] = 200;
